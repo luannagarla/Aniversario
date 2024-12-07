@@ -1,12 +1,12 @@
 // Inicializa o índice da camada
 let currentLayerIndex = 0;
 
-// Array com as partes do bolo, sem a cobertura
+// Array com as partes do bolo e as imagens associadas a cada camada
 const layers = [
-    { classes: ['cakeLayer', 'base'], text: 'Base' },
-    { classes: ['cakeLayer', 'recheio'], text: 'Recheio' },
-    { classes: ['cakeLayer', 'topo'], text: 'Topo' },
-    { classes: ['vela'], text: 'Vela' }
+    { classes: ['cakeLayer', 'base'], image: 'images/base.png' },    // Base do bolo
+    { classes: ['cakeLayer', 'recheio'], image: 'images/recheio.png' },  // Recheio
+    { classes: ['cakeLayer', 'topo'], image: 'images/topo.png' },      // Topo
+    { classes: ['vela'], image: 'images/vela.png' }                   // Vela
 ];
 
 // Função que é chamada quando o botão é clicado
@@ -17,8 +17,10 @@ document.getElementById('startButton').addEventListener('click', () => {
     if (currentLayerIndex < layers.length) {
         const layer = document.createElement('div');
         layer.classList.add(...layers[currentLayerIndex].classes);
-        layer.innerText = layers[currentLayerIndex].text;
-        
+
+        // Adiciona a imagem correspondente à camada
+        layer.style.backgroundImage = `url(${layers[currentLayerIndex].image})`;
+
         // Define a posição para empilhar as camadas de baixo para cima
         if (layers[currentLayerIndex].classes.includes('base')) {
             layer.style.bottom = '0px'; // A base fica no fundo

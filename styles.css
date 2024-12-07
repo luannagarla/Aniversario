@@ -1,0 +1,79 @@
+body {
+  font-family: Arial, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  background-color: #f0f8ff;
+}
+
+.container {
+  text-align: center;
+}
+
+button {
+  font-size: 16px;
+  padding: 10px 20px;
+  cursor: pointer;
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  margin-bottom: 20px;
+}
+
+#cakeContainer {
+  position: relative;
+  width: 400px;
+  height: 300px;
+  margin-top: 20px;
+  overflow: hidden;
+  border-radius: 10px;
+}
+
+.cakeLayer {
+  width: 100%;
+  text-align: center;
+  border-radius: 5px;
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+}
+
+.base,
+.recheio,
+.topo,
+.vela {
+  background-size: cover; /* Garante que as imagens preencham a camada */
+  background-position: center;
+}
+
+.base {
+  height: 104px;
+  width: 200px;
+  bottom: 0;
+}
+
+.recheio {
+  width: 157px;
+  height: 42px;
+  bottom: 95px !important;
+}
+
+.topo {
+  width: 100px;
+  height: 25px;
+  bottom: 137px !important;;
+}
+
+.vela {
+    width: 89px;
+    height: 70px;
+    margin: 0 auto;
+    border-radius: 5px;
+    position: absolute;
+    top: 68px;
+    left: 153px;
+}

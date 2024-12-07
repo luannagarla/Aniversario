@@ -1,4 +1,3 @@
-// Inicializa o índice da camada
 let currentLayerIndex = 0;
 
 // Array com as partes do bolo e as imagens associadas a cada camada
@@ -9,7 +8,7 @@ const layers = [
     { classes: ['vela'], image: 'images/vela.png' }                   // Vela
 ];
 
-// Função que é chamada quando o botão é clicado
+// Função que é chamada quando o botão "Clique para fazer o bolo" é clicado
 document.getElementById('startButton').addEventListener('click', () => {
     const cakeContainer = document.getElementById('cakeContainer');
 
@@ -21,7 +20,7 @@ document.getElementById('startButton').addEventListener('click', () => {
         // Adiciona a imagem correspondente à camada
         layer.style.backgroundImage = `url(${layers[currentLayerIndex].image})`;
 
-        // Define a posição para empilhar as camadas de baixo para cima
+        // Ajusta a posição da camada para empilhar de baixo para cima
         if (layers[currentLayerIndex].classes.includes('base')) {
             layer.style.bottom = '0px'; // A base fica no fundo
         } else {
@@ -33,4 +32,15 @@ document.getElementById('startButton').addEventListener('click', () => {
         
         currentLayerIndex++; // Incrementa o índice para mostrar a próxima parte
     }
+
+    // Quando todas as camadas estiverem exibidas, mostre o botão para navegar para outra página
+    if (currentLayerIndex === layers.length) {
+        document.querySelector('.container button').hidden = true;  // Esconde o botão "Clique para fazer o bolo"
+        document.querySelectorAll('.container')[1].hidden = false;  // Mostra o botão "Clique aqui :)"
+    }
+});
+
+// Adiciona o evento para redirecionar para outra página quando o botão for clicado
+document.getElementById('nextPage').addEventListener('click', () => {
+    window.location.href = "card/index.html";  // Substitua com o caminho da sua página de destino
 });

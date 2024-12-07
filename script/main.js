@@ -1,3 +1,16 @@
+const music = document.getElementById("background-music");
+const volumeSlider = document.getElementById("volume-slider");
+
+if (music && volumeSlider) {
+  music.volume = 0.1;
+
+  volumeSlider.addEventListener("input", (event) => {
+    music.volume = event.target.value;
+  });
+} else {
+  console.error("Elemento de áudio ou controle de volume não encontrado.");
+}
+
 // Animation Timeline
 const animationTimeline = () => {
   // Transições de texto usadas em várias partes
@@ -166,13 +179,7 @@ const animationTimeline = () => {
         rotation: 90,
       },
       "+=1"
-    );
-
-  // Reiniciar a animação ao clicar no botão de replay
-  const replyBtn = document.getElementById("replay");
-  replyBtn.addEventListener("click", () => {
-    window.location.href = "../cartao/index.html";
-  });
+    ); 
 };
 
 // Importar dados para personalização
